@@ -64,9 +64,18 @@ footer, header, hgroup, menu, nav, section {
        url('fonts/montserrat-v18-latin-700.svg#Montserrat') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+    font-family: '8BIT-WONDER-Nominal';
+    src:url('fonts/8BIT-WONDER-Nominal.ttf.woff') format('woff'),
+        url('fonts/8BIT-WONDER-Nominal.ttf.svg#8BIT-WONDER-Nominal') format('svg'),
+        url('fonts/8BIT-WONDER-Nominal.ttf.eot'),
+        url('fonts/8BIT-WONDER-Nominal.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 	line-height: 1;
-	background-color: #240e28;
 	font-family: 'Montserrat';
 }
 ol, ul {
@@ -85,28 +94,249 @@ table {
 	border-spacing: 0;
 }
 
-#logo {width: 30%; margin: 5% auto;}
-#logo img {width: 100%; height: auto;}
+.gradient {
+  --borderWidth: 10px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient:after {
+  content: '';
+  position: absolute;
+  top: calc(-3 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 6);
+  width: calc(100% + var(--borderWidth) * 1);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  /*border-radius: calc(2 * var(--borderWidth));*/
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
 
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.blink {
+	cursor: pointer;
+  animation: blinker 1s step-start infinite;
+	font-family: '8BIT-WONDER-Nominal';
+}
+
+.blink a {text-decoration: none; color: #f1be29;}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+.startP {
+	padding: 4% 0 !important;
+	background-color: #240e28 !important;
+  	background-image: 
+      repeating-linear-gradient(
+      -45deg, 
+      transparent, 
+      transparent 4rem,
+      #321438 4rem,
+      #321438 8rem
+  );
+  background-size: 200% 200%;
+  animation: barberpole 30s linear infinite;
+}
+
+@keyframes barberpole {
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes float-1 {
+	0% {
+		transform:translatey(0)
+	} 50% {
+		transform:translatey(-12px)
+	} to {
+		transform:translatey(0)
+	}
+}
+
+
+
+
+#nav {background-color: #d8247c;  position: fixed; top: 0; left: 0; width: 100%; z-index: 500; font-size: 12px; text-transform: uppercase; }
+#nav ul {list-style-type: none;  text-align: right; display: inline-block; }
+#nav li {display: inline-block; font-weight: 700; padding: 0 1%; padding: 2%;}
+#nav a {color: #ffffff; text-decoration: none;}
+
+#name {text-align: left;  display: inline-block; }
+#name a {padding: 2%; display: block;}
+
+.bgWhite {background-color: #ffffff;}
+.bgDark {background-color: #240e28;}
+
+.w33 {width: 32.5%;}
 .w40 {width: 40%;}
-.w60 {width: 60%;}
-.w70 {width: 70%;}
-.inline {display: inline-block;}
+.w50 {width: 50%;}
+.w60 {width: 60%; }
+.w70 {width: 70%; }
+.w80 {width: 80%; }
+.inline {display: inline-block; vertical-align: middle;}
 .mAuto {margin: auto;}
+.clear{ clear: both;}
+.p5p {padding: 5% 0 5% 0; position: relative;}
+.wrapper {/*background-color: #240e28;*/}
 
-#banner {width: 100%; padding: 30px 0px 0px 0px; text-align: center; display: inline-block;}
-#banner img {width: 40%; height: auto;}
+.quote {padding: 0px 0px 140px 0px; margin:0px; text-align: center; font-size:20px;}
 
-.container {background-color: #ffffff; padding: 50px 0px 50px 0px; text-align: center;}
+#banner {width: 100%; padding: 5% 0px 0% 0px; text-align: center; display: inline-block; background-image: url("img/mb-pattern.svg");}
+#banner img {width: 40%; height: auto; }
+#tagline h1 {color: #ffffff; font-size: 30px; background-color:#d8247c; text-align: center; font-size: 20px;}
+
+.container {/*background-color: #ffffff;*/ padding: 0px 0px 0px 0px; text-align: left;}
+.containerDark {background-color: #240e28;}
+.containerDark p, .startP p {color: #ffffff;}
 
 h1 {font-family: 'Sharp Sans ExtraboldItalic'; font-size: 44px; color: #25a9f0; padding: 20px;}
+h2 {font-family: 'Sharp Sans ExtraboldItalic'; font-size: 40px; color: #25a9f0; padding: 20px;}
+h3 {font-family: 'Sharp Sans ExtraboldItalic'; font-size: 34px; color: #d8247c; padding: 20px;}
 
 p {font-size: 16px; line-height: 24px; padding: 20px;}
-a {color: #d8247c; font-weight: 700; text-decoration: none;}
+a {color: #d8247c; font-weight: 700; text-decoration: underline;}
+a:hover {color: #f1be29;}
+/*a:visited {color: #c7196e;}*/
+
+strong {font-weight: 700; color: #f1be29;}
 
 .textLeft {text-align: left;}
 
 .videoBox {margin: 5% 0;}
 
+.img70 {width: 70%; margin: 0 auto;}
+.img70 img {width: 100%; height: auto;}
+
+.profile img {margin: 0 auto; border-color: transparent;
+    border-radius: 0%; width: 100%; height: auto;}
+
+.wcidfu {text-align: left; vertical-align: top; margin: 0 0 5% 0;}
+.wcidfu img{width: 40%; margin: 0 auto 5% auto; display: block;}
+
+#footer {
+	background-color: #25a9f0;
+	padding: 0%;
+	font-weight: 700;
+	color: #ffffff;
+}
 
 
+.accordion {
+  cursor: pointer;
+  transition: 0.4s;
+}
+.accordion p {
+  color: #d8247c;
+}
+.accordion p:hover{
+  color: #f1be29;
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.panel p {
+  font-size: 1em;
+  padding: 3%;
+}
+
+/* SPINNGIN TRIANGLES */
+
+.tri1 {width: 10%; top: 10%; left: -10%; position: absolute;}
+.tri2 {width: 8%; bottom: 10%; right: -10%; position: absolute;}
+.tri3 {width: 4%; bottom: 10%; left: 10%; position: absolute;}
+.rotator-right{
+
+  animation: rotate-right 30s linear infinite;
+  
+}
+.rotator-left{
+
+  animation: rotate-left 30s linear infinite;
+  
+}
+
+@keyframes rotate-right
+{
+    from { 
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-left
+{
+    from { 
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+
+h3 {font-size: 28px;}
+#nav {font-size: 12px;}
+}
+
+@media only screen and (max-width: 820px) {
+
+h3 {font-size: 28px;}
+#nav {font-size: 12px;}
+}
+
+
+@media only screen and (max-width: 600px) {
+
+#banner img {width: 85%;}
+#nav {display: none;}
+#tagline h1 {font-size: 16px}
+.w70 {width: 90%;}
+.w40 {width: 100%;}
+.w60 {width: 100%}
+.w33 {width: 100%; padding: 0px 0px 70px 0px}
+.w33 p {padding: 0px;}
+.w33 h3 {padding: 30px 0px 30px 0px;}
+.wcidfu img {width: 60%;}
+.w70 p {padding: 20px;}
+
+.w40 img {width: 100%; text-align: center; padding: 0px 0px 30px 0px;}
+.inline {display: block;}
+
+p {padding: 20px 0px 20px 20px;}
+.quote { font-size:16px; padding: 0px 0px 50px 0px;}
+
+.tri1 {top: 3%; left: 5%; width: 12%}
+.tri2 {bottom: 65%; right: 75%; width: 10%;}
+.tri3 {bottom: 95%; left: 80%; width: 8%;}
+
+}
